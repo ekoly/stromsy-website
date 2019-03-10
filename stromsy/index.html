@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Stromsy</title>
+		<link rel="stylesheet" href="css/fdm-combinator-style.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="js/post_inserter.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<section class="margin-section"></section>
+		<section id="main-section" ng-app="StromsyApp" ng-controller="mainCtrl">
+			<header id="banner">
+				<section id="main-logo" class="col col3">
+					<h1>
+						<a id="main-logo-title" href="#">
+							stromsy
+						</a>
+					</h1>
+				</section>
+                <nav>
+					<ul>
+                        <li class="col col2">
+                            <h1>
+                                <a id="nav-main-logo-title" href="#" ng-click="view=views.home">
+                                    stromsy
+                                </a>
+                            </h1>
+                        </li>
+                        <li class="col col2">
+                            <a href="#" ng-click="view=views.about">about</a>
+                        </li>
+                        <li class="col col2">
+                            <a href="#" ng-click="view=views.links">links</a>
+                        </li>
+                        <li class="col col2">
+                            <a href="#" ng-click="view=views.projects">projects</a>
+                        </li>
+                        <li class="col col2">
+                            <a href="#"></a>
+                        </li>
+                        <li class="col2 col-last">
+                            <a href="#" id="login">
+                                login
+                            </a>
+                        </li>
+					</ul>
+				</nav>
+				<section id="hamburger-menu">
+					<i id="hamburger" class="fas fa-bars"></i>
+					<ul id="hamburger-dropdown">
+						<li>
+							<a href="#">login</a>
+						</li>
+						<li>
+							<a href="#" ng-click="clearAndPopulatePosts()">links</a>
+						</li>
+						<li>
+							<a href="#" ng-click="clearAndPopulatePosts()">projects</a>
+						</li>
+					</ul>
+				</section>
+			</header>
+            <section id="main-content-area">
+            </section>
+            <footer>
+                <section><a href="#">About</a></section>
+            </footer>
+        </section>
+		<section class="margin-section"></section>
+	</body>
+</html>

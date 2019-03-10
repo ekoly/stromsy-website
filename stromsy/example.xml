@@ -1,0 +1,32 @@
+<xml>
+	<posts>
+		<post>
+			<title>Post Title</title>
+			<url>www.example.com</url>
+			<numPoints>100</numPoints>
+			<postId>123456789</postId>
+			<author>post.author</author>
+			<timestamp>Thu Mar 07 2019 10:16:43 GMT-0600</timestamp>
+			<numComments>100</numComments>
+			<tags>
+				<tag>draw.io</tag>
+				<tag>wireframes</tag>
+				<tag>information architecture</tag>
+			</tags>
+		</post>
+		<post>
+			<title>Post Title</title>
+			<url>www.example.com</url>
+			<numPoints>100</numPoints>
+			<postId>987654321</postId>
+			<author>post.author</author>
+			<timestamp>Thu Mar 07 2019 10:16:43 GMT-0600</timestamp>
+			<numComments>100</numComments>
+			<tags>
+				<tag>draw.io</tag>
+				<tag>wireframes</tag>
+				<tag>information architecture</tag>
+			</tags>
+		</post>
+	</posts>
+</xml>

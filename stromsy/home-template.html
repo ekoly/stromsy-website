@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<section>
+    <section id="top-banner-picture">
+        <a href="#"><img title="Lief Eriksson discovers Straumsey" src="img/vikings_at_straumsey_banner-9.png" /></a>
+    </section>
+    <section id="content">
+        <ul id="content-list" ng-repeat="post in posts">
+            <li>
+                <section class="post-1">
+                    <a class="post-upvote-button" ng-click="toggleVote(post)">
+                        <i class="far fa-arrow-alt-circle-up" ng-class="{'is-upvoted': post.is_voted}"></i>
+                    </a>
+                    <p class="post-points">{{post.num_points}}</p>
+                </section>
+                <section class="post-2">
+                    <section class="post-top">
+                        <h2 class="post-title">{{post.title}}</h2>
+                        <p class="post-website">{{post.url}}</p>
+                    </section>
+                    <section class="post-middle">
+                        <a class="post-upvote-button" ng-click="toggleVote(post)">
+                            <i class="far fa-arrow-alt-circle-up" ng-class="{'is-upvoted': post.is_voted}"></i>
+                        </a>
+                        <p class="post-points">{{post.num_points}} points</p>
+                        <p class="post-user">by <a href="#">{{post.author}}</a></p>
+                        <p class="post-timestamp">{{post.timestamp}}</p>
+                    </section>
+                    <section class="post-bottom-tags">
+                        <p class="post-tags">
+                            tags:
+                            <span ng-repeat="tag in post.tags">
+                                <a class="post-tag" href="#">{{tag.text}}</a>
+                            </span>
+                        </p>
+                    </section>
+                    <section class="post-bottom-comments">
+                        <p class="post-comments2">{{post.num_comments}} <a href="#">comments</a></p>
+                    </section>
+                </section>
+                <section class="post-3">
+                    <span class="post-tags">tags: </span>
+                    <section class="post-tags" ng-repeat="tag in post.tags">
+                        <a class="post-tag" href="#">{{tag.text}}</a>								
+                    </section>
+                </section>
+                
+                <section class="post-4">
+                    <section class="post-comments1"><p><a href="#"><i class="far fa-comment"></i></a></p><p>{{post.num_comments}}</p></section>
+                    <p class="post-comments2">{{post.num_comments}} <a href="#">comments</a></p>
+                </section>
+            </li>
+        </ul>
+    </section>
+    <section id="more-button"><a ng-click="populatePosts()">more</a></section>
+</section>

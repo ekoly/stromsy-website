@@ -1,0 +1,677 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url("../img/vikings_at_straumsey_background-1.png");
+    background-size: cover;
+    background-position: 50% 50%;
+	font-family: monospace;
+}
+
+.row {
+	height: 100px;
+	text-align: center;
+}
+
+.col {
+	float: left;
+	margin-right: 3%;
+}
+.last-col {
+	float: left;
+	margin-right: 0;
+}
+
+.col1 {
+	width: 5.5%;
+}
+
+.col2 {
+	width: 14%;
+}
+
+.col3 {
+	width: 22.5%;
+}
+
+.col4 {
+	width: 31%;
+}
+
+.col5 {
+	width: 39.5%;
+}
+
+.col6 {
+	width: 48%;
+}
+
+.col7 {
+	width: 56.5%;
+}
+
+.col8 {
+	width: 65%;
+}
+
+.col9 {
+	width: 73.5%;
+}
+
+.col10 {
+	width: 82%;
+}
+
+.col11 {
+	width: 90.5%;
+}
+
+.col12 {
+	width: 99%;
+}
+
+body {
+    text-align: center;
+}
+
+section.margin-section {
+	height: 0;
+	width: 25%;
+	float: left;
+}
+
+#main-section {
+    max-width: 800px;
+	width: 100%;
+    margin: 0 auto;
+}
+
+#banner {
+	height: 40px;
+	width: 100%;
+	background-color: #511;
+	padding: 0;
+	overflow: hidden;
+}
+
+#banner a {
+	text-decoration: none;
+}
+#banner a:hover {
+	text-decoration: underline;
+}
+#banner a:visited {
+	color: rgb(245,229,208);
+}
+
+#main-logo {
+	float: left;
+	text-align: center;
+	margin-right: 1%;
+    display: none;
+}
+
+#main-logo h1 {
+	margin: 0;
+	padding: 0;
+}
+#main-logo-title {
+	font-size: 150%;
+	color: rgb(245,229,208);
+	float: left;
+	width: 50%;
+	margin: 9px 0 0 15px;
+	text-align: center;
+}
+#banner nav {
+	height: 100%;
+	padding: 0;
+    color: rgb(245,229,208);
+}
+#nav-main-logo-title {
+	font-size: 14pt;
+	color: rgb(245,229,208);
+	float: left;
+	width: 50%;
+	margin: -19px 0 0 15px;
+	text-align: center;
+}
+#banner nav ul {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	float: left;
+	list-style: none;
+}
+
+#banner nav ul li {
+	float: left;
+	list-style: none;
+	padding: 11px 0;
+	text-align: center;
+	font-size: 12pt;
+    height: 40px;
+}
+#banner nav ul li:first-child {
+}
+#banner nav ul li a {
+    color: rgb(245,229,208);
+}
+#banner nav ul li a:hover {
+	text-decoration: none;
+	text-decoration: underline;
+}
+#banner input {
+	border-radius: 4px;
+	margin-top: 17px;
+	height: 20px;
+}
+#login {
+    color: rgb(245,229,208);
+	margin-top: 11px;
+	font-size: 12pt;
+}
+#hamburger-menu {
+	z-index: 1;
+}
+#hamburger {
+	display: none;
+	font-weight: 800;
+	float: right;
+	font-size: 150%;
+	margin-top: 9px;
+	margin-right: 10px;
+    color: rgb(245,229,208);
+}
+#hamburger-dropdown {
+	display: none;
+	list-style: none;
+	position: absolute;
+	right: 0;
+	top: 39px;
+	margin: 0;
+	padding: 0;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+#hamburger-dropdown li {
+	border-top: 1px solid;
+	right: 0;
+	padding: 10px 0;
+	height: auto;
+	display: block;
+	overflow: auto;
+	width: 120px;
+	background-color: #733;
+	text-align: center;
+}
+#hamburger-menu #hamburger-dropdown a {
+	font-size: 15pt;
+}
+
+#hamburger-dropdown li:first-child {
+	border-top: none;
+}
+#hamburger-menu:hover #hamburger {
+	background-color: #733;
+	height: 40px;
+    width: 40px;
+    margin: 0;
+	padding: 9px 0 0 0;
+	text-align: center;
+	border-left: 1px solid black;
+	z-index: 2;
+}
+#hamburger-menu:hover #hamburger-dropdown {
+	z-index: 1;
+	display: block;
+}
+#hamburger-menu #hamburger-dropdown li:hover {
+	background-color: #511;
+}
+#hamburger-menu #hamburger-dropdown a:hover {
+	text-decoration: none;
+}
+#top-banner-picture {
+	margin: 15px 0 0 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#top-banner-picture img {
+	max-width: 100%;
+	max-height: 100%;
+    width: 100%;
+}
+#disclaimer {
+	bottom: 0;
+	right: 0;
+	font-size: 10pt;
+	float: right;
+}
+
+#main-content-area {
+    margin: 15px 0 0 0;
+    display: block;
+}
+
+#content {
+	padding: 0;
+	margin: 15px 0 0 0;
+	background-color: rgb(245,229,208);
+	width: 100%;
+}
+
+#content article {
+    padding: 50px 100px;
+    font-size: 11pt;
+    color: #201010;
+    text-align: justify;
+}
+
+#content article a,
+#content article a:visited,
+#content article a:hover {
+    color: #511;
+}
+
+#content article p {
+    margin: 40px 0;
+}
+
+#content article ul {
+    border: 0px;
+}
+#content article ul li {
+    text-align: left;
+    border: 0px;
+}
+#content article ul li a:hover {
+    text-decoration: none;
+}
+
+
+#about-img-container {
+    width: 100%;
+    text-align: center;
+}
+
+#about-vikings-at-straumsey {
+    width: 60%;
+}
+
+
+#content ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#content li {
+	width: 100%;
+	border-bottom: 1px solid;
+	height: auto;
+	padding: 10px 0 5px 0;
+	display: block;
+	overflow: auto;
+	position: relative;
+}
+
+#content li p {
+	font-size: 12pt;
+}
+
+.post-1 {
+	height: 50px;
+	width: 0;
+	float: left;
+	display: none;
+	text-align: center;
+}
+
+.post-2 {
+	width: 79%;
+	float: left;
+}
+
+.post-3 {
+	float: left;
+	width: 35%;
+	display: none;
+}
+
+.post-4 {
+	width: 20%;
+	float: left;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.post-top {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.post-middle {
+	display: inline-block;
+	margin: 4px 0 0 0;
+	padding: 0;
+	width: 100%;
+}
+
+.post-bottom-tags {
+	display: inline-block;
+	margin: 4px 0 0 0;
+	padding: 0;
+	width: 100%;
+}
+
+.post-bottom-comments {
+	display: none;
+	margin: 4px 0 0 0;
+	padding: 0;
+	width: 100%;
+}
+
+.post-title {
+	float: left;
+	margin: 0 0 0 15px;
+	padding: 0;
+}
+
+.post-title a, .post-website a,
+.post-title a:hover, .post-website a:hover,
+.post-title a:visited, .post-website a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+.post-website {
+	float: left;
+	margin: 2px 0 0 25px;
+	padding: 0;
+	
+}
+
+.post-upvote-button {
+	float: left;
+	margin: 0 0 0 15px;
+	padding: 0;
+	color: rgb(159,197,62);
+	text-decoration: none;
+}
+.post-upvote-button:visited {
+	text-decoration: none;
+	color: rgb(159,197,62);
+}
+.post-upvote-button:hover {
+	text-decoration: none;
+	color: rgb(0,173,239);
+	cursor: pointer;
+}
+.post-upvote-button .is-upvoted {
+	text-decoration: none;
+	color: rgb(0,173,239);
+}
+
+
+.post-points {
+	float: left;
+	margin: 0 0 0 15px;
+	padding: 0;
+	
+}
+
+.post-user {
+	float: left;
+	margin: 0 0 0 15px;
+	padding: 0;
+	
+}
+.post-user a {
+	color: black;
+}
+.post-user a:visited {
+	color: black;
+}
+.post-user a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+.post-timestamp {
+	float: left;
+	margin: 0 0 0 15px;
+	padding: 0;
+	
+}
+
+.post-tags {
+	float: left;
+	margin: 0 0 0 15px;
+	padding: 0;
+	
+}
+
+a.post-tag {
+	text-decoration: underline;
+	color: black;
+}
+a.post-tag:visited {
+	text-decoration: underline;
+	color: black;
+}
+a.post-tag:hover {
+	text-decoration: none;
+	color: black;
+}
+
+.post-comments1 {
+	display: none;
+}
+.post-comments1 i {
+	font-size: 200%;
+}
+.post-comments1 p {
+	margin: 5px 0;
+}
+.post-comments1 a {
+	color: black;
+}
+.post-comments1 a:visited {
+	color: black;
+}
+.post-comments1 a:hover {
+	color: black;
+	text-decoration: none;
+}
+.post-comments2 a {
+	color: black;
+}
+.post-comments2 a:visited {
+	color: black;
+}
+.post-comments2 a:hover {
+	color: black;
+	text-decoration: none;
+}
+.post-bottom-comments .post-comments {
+	margin: 4px 0 0 15px;
+	padding: 0;
+}
+
+#more-button {
+	width: 100%;
+	text-align: center;
+	margin: 10px 0;
+}
+#more-button a {
+	text-decoration: none;
+	color: black;
+	font-size: 12pt;
+}
+#more-button a:visited {
+	text-decoration: none;
+	color: black;
+}
+#more-button a:hover {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+footer {
+	margin: 15px 0 0 0;
+	padding: 10px 0;
+	text-align: center;
+	background-color: #511;
+	width: 100%;
+}
+
+footer a {
+	text-decoration: none;
+	color: rgb(245,229,208);
+	font-size: 12pt;
+}
+footer a:visited {
+	text-decoration: none;
+	color: rgb(245,229,208);
+}
+footer a:hover {
+	text-decoration: none;
+	color: rgb(245,229,208);
+}
+
+@media only screen and (max-width: 1650) {
+    /*
+	section.margin-section {
+		width: 15%;
+	}
+	#main-section {
+		width: 69%;
+	}
+    */
+	#banner h1 {
+		font-size: 105%;
+	}
+}
+@media only screen and (max-width: 1165px) {
+    /*
+	section.margin-section {
+		width: 5.5%;
+	}
+	#main-section {
+		width: 82%;
+	}
+    */
+	#banner h1 {
+		font-size: 105%;
+	}
+}
+@media only screen and (max-width: 950px) {
+    /*
+	section.margin-section {
+		width: 0;
+	}
+	#main-section {
+		width: 100%;
+	}
+    */
+	
+}
+@media only screen and (max-width: 800px) {
+	section.margin-section {
+		width: 0;
+	}
+	#main-section {
+		width: 100%;
+	}
+    #main-logo {
+        display: inline;
+    }
+	#banner nav {
+		display: none;
+	}
+	#login {
+		display: none;
+	}
+	#hamburger {
+		display: inline;
+	}
+	#banner nav {
+		width: 39.5%;
+	}
+	.post-1 {
+		width: 10%;
+		display: inline;
+	}
+	.post-1 .post-upvote-button{
+		width: 100%;
+		margin: 14px 0 0 0;
+		padding: 0;
+		font-size: 150%;
+	}
+	.post-1 .post-points {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	.post-2 {
+		width: 69%;
+	}
+	.post-2 .post-points, .post-2 .post-upvote-button {
+		display: none;
+	}
+	.post-3 {
+		width: 0;
+		display: none;
+	}
+	.post-bottom-tags {
+		display: inline;
+	}
+	.post-comments1 {
+		display: inline-block;
+	}
+	.post-comments2 {
+		display: none;
+	}
+    #content article {
+        padding: 40px 50px;
+    }
+    #about-vikings-at-straumsey {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 640px) {
+	p {
+		font-size: 12pt;
+	}
+	.post-1 {
+		width: 15%;
+	}
+	.post-2 {
+		width: 74%;
+	}
+	.post-4 {
+		width: 0%;
+		display: none;
+	}
+	.post-bottom-comments {
+		display: inline-block;
+	}
+	.post-bottom-comments .post-comments2{
+		display: inline-block;
+		margin: 0 0 0 15px;
+	}
+    #content article {
+        padding: 40px 10px;
+        font-size: 12pt;
+    }
+    #about-vikings-at-straumsey {
+        width: 100%;
+    }
+}
