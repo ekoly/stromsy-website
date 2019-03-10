@@ -3,53 +3,24 @@
     <section id="top-banner-picture">
         <a href="#"><img title="Lief Eriksson discovers Straumsey" src="img/vikings_at_straumsey_banner-9.png" /></a>
     </section>
-    <section id="content">
-        <ul id="content-list" ng-repeat="post in posts">
-            <li>
-                <section class="post-1">
-                    <a class="post-upvote-button" ng-click="toggleVote(post)">
-                        <i class="far fa-arrow-alt-circle-up" ng-class="{'is-upvoted': post.is_voted}"></i>
-                    </a>
-                    <p class="post-points">{{post.num_points}}</p>
-                </section>
-                <section class="post-2">
-                    <section class="post-top">
-                        <h2 class="post-title">{{post.title}}</h2>
-                        <p class="post-website">{{post.url}}</p>
-                    </section>
-                    <section class="post-middle">
-                        <a class="post-upvote-button" ng-click="toggleVote(post)">
-                            <i class="far fa-arrow-alt-circle-up" ng-class="{'is-upvoted': post.is_voted}"></i>
-                        </a>
-                        <p class="post-points">{{post.num_points}} points</p>
-                        <p class="post-user">by <a href="#">{{post.author}}</a></p>
-                        <p class="post-timestamp">{{post.timestamp}}</p>
-                    </section>
-                    <section class="post-bottom-tags">
-                        <p class="post-tags">
-                            tags:
-                            <span ng-repeat="tag in post.tags">
-                                <a class="post-tag" href="#">{{tag.text}}</a>
-                            </span>
-                        </p>
-                    </section>
-                    <section class="post-bottom-comments">
-                        <p class="post-comments2">{{post.num_comments}} <a href="#">comments</a></p>
-                    </section>
-                </section>
-                <section class="post-3">
-                    <span class="post-tags">tags: </span>
-                    <section class="post-tags" ng-repeat="tag in post.tags">
-                        <a class="post-tag" href="#">{{tag.text}}</a>								
-                    </section>
-                </section>
-                
-                <section class="post-4">
-                    <section class="post-comments1"><p><a href="#"><i class="far fa-comment"></i></a></p><p>{{post.num_comments}}</p></section>
-                    <p class="post-comments2">{{post.num_comments}} <a href="#">comments</a></p>
-                </section>
-            </li>
-        </ul>
+    <section id="content" ng-repeat="post in posts">
+        <article class="blog-post">
+            <h3>{{post.title}}</h3>
+            <p>
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at feugiat nisl, ut tincidunt metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In nec nisl ullamcorper, vehicula neque ac, consequat turpis. Curabitur quis tincidunt lacus. Duis dignissim convallis nunc, vel pharetra purus feugiat sit amet. Cras laoreet tempus turpis, eget cursus felis vehicula vel. Etiam congue ex at mollis aliquet. Duis metus quam, tincidunt nec auctor eu, posuere ultrices sem. In vel lacus at purus venenatis faucibus vitae a felis. Vivamus volutpat mollis massa, vel commodo erat pharetra sit amet. Etiam ac mi orci. Integer non turpis venenatis, fermentum ligula molestie, facilisis nisi. Fusce viverra mattis egestas.
+            </p>
+            <blockquote>
+                <p>
+
+                     Maecenas fermentum sapien ex, in eleifend neque mollis ac. Maecenas vel lectus auctor, maximus nunc id, pharetra nibh. Praesent vulputate viverra nibh, eget lobortis enim interdum ut. Donec nulla est, posuere eget ultricies sit amet, bibendum id nunc. Pellentesque congue urna sit amet est tincidunt, non sagittis mi consectetur. Quisque a sem pellentesque, lobortis magna quis, pretium eros. Suspendisse mi justo, vehicula id maximus et, porta at justo. Vestibulum lorem metus, lobortis nec bibendum nec, egestas at dui. Nulla laoreet sed ante consectetur semper. Sed consequat est et lacus sagittis, fermentum aliquet risus consequat. Aliquam vitae dolor et ipsum luctus fringilla. Nullam vitae quam justo.
+                </p>
+            </blockquote>
+            <p>
+
+             Praesent convallis sed sapien eu fringilla. Morbi condimentum pellentesque tellus, nec tempor nisi commodo sit amet. Phasellus efficitur massa leo, nec blandit massa fringilla posuere. Curabitur et velit eu ante accumsan iaculis. Duis turpis est, consequat vel justo at, convallis porttitor dui. Nam faucibus egestas enim, at congue dolor vestibulum quis. Vivamus aliquet pulvinar neque, eget lacinia lacus viverra vitae. Etiam sapien urna, commodo nec venenatis non, porta quis mi. Sed at posuere magna. In sem tellus, bibendum facilisis dapibus nec, posuere vel dolor. Maecenas et nisl quis diam egestas consectetur sit amet dapibus elit. Etiam sed lacus lorem. Suspendisse risus lectus, mattis eget lectus nec, hendrerit malesuada neque. Sed vestibulum ut odio non ornare. Praesent id lectus eu est sagittis fringilla non id ligula. Sed vitae velit erat. 
+            </p>
+            <p class="post-time">{{post.time}}</p>
+        </article>
     </section>
     <section id="more-button"><a ng-click="populatePosts()">more</a></section>
 </section>

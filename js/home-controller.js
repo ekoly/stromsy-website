@@ -67,9 +67,8 @@
 		];
 
 
-    stromsy.app.controller('homeCtrl', function($scope, $http, $sce, $compile) {
+    stromsy.app.controller('homeCtrl', ($scope, $http, $sce, $compile) => {
 
-        scope = $scope;
 	    
         $scope.toggleVote = function(post) {
             

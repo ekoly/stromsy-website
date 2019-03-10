@@ -103,6 +103,10 @@ section.margin-section {
 	color: rgb(245,229,208);
 }
 
+#banner .active-tab {
+    font-weight: 1000;
+}
+
 #main-logo {
 	float: left;
 	text-align: center;
@@ -266,8 +270,12 @@ section.margin-section {
 #content article {
     padding: 50px 100px;
     font-size: 11pt;
-    color: #201010;
+    color: #301515;
     text-align: justify;
+    margin-bottom: 25px;
+}
+#content article:last {
+    margin-bottom: 0;
 }
 
 #content article a,
@@ -291,6 +299,47 @@ section.margin-section {
     text-decoration: none;
 }
 
+#content article.blog-post h3 {
+    color: #511;
+    margin-top: 0;
+}
+
+#content article.blog-post blockquote {
+}
+
+#content article.blog-post blockquote,
+#content article.blog-post blockquote p
+{
+    color: #504040;
+}
+
+#content article.blog-post blockquote p:before {
+    content: "\201C";
+    font-size: 200%;
+    height: 0;
+    display: block;
+    position: relative;
+    right: 30px;
+    bottom: 10px;
+    /* content: "<i class=\"fas fa-quote-left\"></i>"; */
+}
+
+#content article.blog-post blockquote p:after {
+    content: "\201D";
+    font-size: 200%;
+    height: 0;
+    display: block;
+    position: relative;
+    left: 30px;
+    float: right;
+    bottom: 10px;
+
+    /* content: "<i class=\"fas fa-quote-right\"></i>"; */
+}
+
+#content article.blog-post .post-time {
+    margin-bottom: 0;
+}
 
 #about-img-container {
     width: 100%;
