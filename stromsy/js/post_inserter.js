@@ -123,85 +123,31 @@
 		
 	};
 
-	const app = angular.module('StromsyApp', []);
+	const app = angular.module('StromsyApp', ["ngRoute"]);
 
-    // app.directive("ngMainContentArea", ()=>{
+    app.config(($routeProvider)=>{
+        $routeProvider
+            .when('/', {templateUrl: 'home-template.html', controller: 'homeCtrl'})
+            .when('/about', {templateUrl: 'about-template.html'})
+            .when('/links', {templateUrl: 'links-template.html'})
+            .when('/projects', {templateUrl: 'projects-template.html'})
+            .when('/login', {templateUrl: 'login-template.html'})
+            .otherwise({redirectTo: '/'});
+    });
 
-        // return {
-            // templateUrl: (elem, attr)=>{
-                // return "about-template.html";
-            // }
-        // };
+    app.controller('homeCtrl', function($scope, $http, $sce, $compile) {
 
-    // });
+        scope = $scope;
 
-	app.controller('mainCtrl', function($scope, $http, $sce, $compile) {
-
-		scope = $scope;
-
-        $scope.goToHome = ()=> {
-
-            console.log("goToHome()");
-
-            document.getElementById("main-content-area").innerHTML="";
-            
-            $http({
-                url: "home-template.html",
-                method: "GET"
-            }).then((template)=>{
-                document.getElementById("main-content-area").innerHTML=template.data;
-                $compile(document.getElementById("main-content-area"))($scope);
-                $scope.clearAndPopulatePosts();
-            }, ()=>{
-                console.log("Error fetching url!");
-            });
-
-        };
-
-        $scope.goToAbout = ()=> {
-
-            console.log("goToAbout()");
-
-            document.getElementById("main-content-area").innerHTML="";
-            
-            $http({
-                url: "about-template.html",
-                method: "GET"
-            }).then((template)=>{
-                document.getElementById("main-content-area").innerHTML=template.data;
-                $compile(document.getElementById("main-content-area"))($scope);
-            }, ()=>{
-                console.log("Error fetching url!");
-            });
-
-        };
+        $scope.toggleVote = toggleVote;
+        $scope.populatePosts = populatePosts;
+        $scope.clearAndPopulatePosts = clearAndPopulatePosts;
         
-        $scope.goToLinks = ()=> {
+        $scope.posts = []
+        $scope.clearAndPopulatePosts();
 
-            console.log("goToLinks()");
-
-            document.getElementById("main-content-area").innerHTML="";
-            
-            $http({
-                url: "links.html",
-                method: "GET"
-            }).then((template)=>{
-                document.getElementById("main-content-area").innerHTML=template.data;
-                $compile(document.getElementById("main-content-area"))($scope);
-            }, ()=>{
-                console.log("Error fetching url!");
-            });
+    });
 
 
-        };
-
-		$scope.toggleVote = toggleVote;
-		$scope.populatePosts = populatePosts;
-		$scope.clearAndPopulatePosts = clearAndPopulatePosts;
-		
-		$scope.posts = []
-		$scope.goToHome();
-
-	});
-	
+    
 })();

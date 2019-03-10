@@ -6,16 +6,17 @@
 		<link rel="stylesheet" href="css/fdm-combinator-style.css" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 		<script src="js/post_inserter.js"></script>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="pageport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
 		<section class="margin-section"></section>
-		<section id="main-section" ng-app="StromsyApp" ng-controller="mainCtrl">
+        <section id="main-section" ng-app="StromsyApp">
 			<header id="banner">
 				<section id="main-logo" class="col col3">
 					<h1>
-						<a id="main-logo-title" href="#">
+						<a id="main-logo-title" href="#/!" ng-click="page=pages.home">
 							stromsy
 						</a>
 					</h1>
@@ -24,25 +25,25 @@
 					<ul>
                         <li class="col col2">
                             <h1>
-                                <a id="nav-main-logo-title" href="#" ng-click="view=views.home">
+                                <a id="nav-main-logo-title" href="#/!" ng-click="page=pages.home">
                                     stromsy
                                 </a>
                             </h1>
                         </li>
                         <li class="col col2">
-                            <a href="#" ng-click="view=views.about">about</a>
+                            <a href="#!projects">projects</a>
                         </li>
                         <li class="col col2">
-                            <a href="#" ng-click="view=views.links">links</a>
+                            <a href="#!links">links</a>
                         </li>
                         <li class="col col2">
-                            <a href="#" ng-click="view=views.projects">projects</a>
+                            <a href="#!about">about</a>
                         </li>
                         <li class="col col2">
-                            <a href="#"></a>
+                            <a href="#/!"></a>
                         </li>
                         <li class="col2 col-last">
-                            <a href="#" id="login">
+                            <a href="#!login" id="login">
                                 login
                             </a>
                         </li>
@@ -52,18 +53,21 @@
 					<i id="hamburger" class="fas fa-bars"></i>
 					<ul id="hamburger-dropdown">
 						<li>
-							<a href="#">login</a>
+							<a href="#!login">login</a>
 						</li>
 						<li>
-							<a href="#" ng-click="clearAndPopulatePosts()">links</a>
+							<a href="#!projects">projects</a>
 						</li>
 						<li>
-							<a href="#" ng-click="clearAndPopulatePosts()">projects</a>
+							<a href="#!links">links</a>
+						</li>
+						<li>
+							<a href="#!about">about</a>
 						</li>
 					</ul>
 				</section>
 			</header>
-            <section id="main-content-area">
+            <section id="main-content-area" ng-view>
             </section>
             <footer>
                 <section><a href="#">About</a></section>
