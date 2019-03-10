@@ -91,19 +91,19 @@
                 
                 let post = {};
                 
-                post.post_id = randInt(Math.pow(10, 12));
+                post.post_id = stromsy.random.integer(Math.pow(10, 12));
                 post.is_voted = false;
-                post.num_points = randInt(1000);
-                post.num_comments = randInt(150);
-                post.time = randInt(12) + " hours ago";
-                post.title = stromsy.randomChoice(titles);
-                post.author = stromsy.randomChoice(users);
-                post.url = stromsy.randomChoice(urls);
+                post.num_points = stromsy.random.integer(1000);
+                post.num_comments = stromsy.random.integer(150);
+                post.time = stromsy.random.integer(12) + " hours ago";
+                post.title = stromsy.random.choice(titles);
+                post.author = stromsy.random.choice(users);
+                post.url = stromsy.random.choice(urls);
                 
                 post.tags = [];
-                for (let j = 0; j < randInt(3)+1; j++) {
+                for (let j = 0; j < stromsy.random.integer(3)+1; j++) {
                     let tag = {
-                        text: stromsy.randomChoice(tags)
+                        text: stromsy.random.choice(tags)
                     };
                     post.tags.push(tag);
                 }
@@ -116,7 +116,7 @@
         $scope.clearAndPopulatePosts = function() {
             
             $scope.posts = [];
-            populatePosts();
+            $scope.populatePosts();
             
         };
         
