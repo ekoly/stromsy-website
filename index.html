@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<section class="margin-section"></section>
-        <section id="main-section" ng-app="StromsyApp">
+        <section id="main-section" ng-app="StromsyApp" ng-controller="mainCtrl">
 			<header id="banner">
 				<section id="main-logo" class="col col3">
 					<h1>
@@ -27,25 +27,25 @@
 					<ul>
                         <li class="col col2">
                             <h1>
-                                <a id="nav-main-logo-title" href="#/!"><!-- ng-class="active-tab: current.activetab==='home'">-->
+                                <a id="nav-main-logo-title" href="#/!" ng-class="{activetab: route.current.activetab==='home'}">
                                     stromsy
                                 </a>
                             </h1>
                         </li>
                         <li class="col col2">
-                            <a href="#!projects">projects</a>
+                            <a href="#!projects" ng-class="{activetab: route.current.activetab==='projects'}">projects</a>
                         </li>
                         <li class="col col2">
-                            <a href="#!links">links</a>
+                            <a href="#!links" ng-class="{activetab: route.current.activetab==='links'}">links</a>
                         </li>
                         <li class="col col2">
-                            <a href="#!about">about</a>
+                            <a href="#!about" ng-class="{activetab: route.current.activetab==='about'}">about</a>
                         </li>
                         <li class="col col2">
-                            <a href="#/!"></a>
+                            <a href="#/!" ng-class="{activetab: route.current.activetab===''}"></a>
                         </li>
                         <li class="col2 col-last">
-                            <a href="#!login" id="login">
+                            <a href="#!login" id="login" ng-class="{activetab: route.current.activetab==='login'}">
                                 login
                             </a>
                         </li>

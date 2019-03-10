@@ -103,10 +103,6 @@ section.margin-section {
 	color: rgb(245,229,208);
 }
 
-#banner .active-tab {
-    font-weight: 1000;
-}
-
 #main-logo {
 	float: left;
 	text-align: center;
@@ -162,9 +158,11 @@ section.margin-section {
     color: rgb(245,229,208);
 }
 #banner nav ul li a:hover {
-	text-decoration: none;
 	text-decoration: underline;
 }
+#banner nav ul li a.activetab {
+}
+
 #banner input {
 	border-radius: 4px;
 	margin-top: 17px;
