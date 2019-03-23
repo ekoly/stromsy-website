@@ -3,7 +3,7 @@ body {
 	padding: 0;
 	background-image: url("../img/vikings_at_straumsey_background-1.png");
     background-size: cover;
-    background-position: 50% 50%;
+/*    background-position: 50% 50%; */
 	font-family: monospace;
 }
 
@@ -114,7 +114,8 @@ section.margin-section {
 	margin: 0;
 	padding: 0;
 }
-#main-logo-title {
+#main-logo-title,
+#main-logo-title.active {
 	font-size: 150%;
 	color: rgb(245,229,208);
 	float: left;
@@ -127,7 +128,8 @@ section.margin-section {
 	padding: 0;
     color: rgb(245,229,208);
 }
-#nav-main-logo-title {
+#nav-main-logo-title,
+#nav-main-logo-title.active {
 	font-size: 14pt;
 	color: rgb(245,229,208);
 	float: left;
@@ -160,7 +162,9 @@ section.margin-section {
 #banner nav ul li a:hover {
 	text-decoration: underline;
 }
-#banner nav ul li a.activetab {
+#banner nav ul li a.active {
+    color: #FFFFFF;
+    font-weight: bold;
 }
 
 #banner input {
@@ -261,7 +265,6 @@ section.margin-section {
 #content {
 	padding: 0;
 	margin: 15px 0 0 0;
-	background-color: rgb(245,229,208);
 	width: 100%;
 }
 
@@ -271,6 +274,7 @@ section.margin-section {
     color: #202020;
     text-align: justify;
     margin-bottom: 25px;
+	background-color: rgb(245,229,208);
 }
 #content article:last {
     margin-bottom: 0;
@@ -295,6 +299,10 @@ section.margin-section {
 }
 #content article ul li a:hover {
     text-decoration: none;
+}
+
+#content article.blog-post {
+    word-wrap: break-word;
 }
 
 #content article.blog-post h3 {
@@ -336,6 +344,7 @@ section.margin-section {
 }
 
 #content article.blog-post .post-time {
+    margin-top: 30px;
     margin-bottom: 0;
 }
 
@@ -577,6 +586,7 @@ footer {
 	text-align: center;
 	background-color: #511;
 	width: 100%;
+	color: rgb(245,229,208);
 }
 
 footer a {
@@ -589,7 +599,7 @@ footer a:visited {
 	color: rgb(245,229,208);
 }
 footer a:hover {
-	text-decoration: none;
+	text-decoration: underline;
 	color: rgb(245,229,208);
 }
 

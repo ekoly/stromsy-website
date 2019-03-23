@@ -6,8 +6,8 @@
         $routeProvider
             .when('/',
                     {
-                        templateUrl: 'partials/home-template.html',
-                        controller: 'homeCtrl',
+                        templateUrl: 'partials/blog-template.html',
+                        controller: 'blogCtrl',
                         activetab: 'home'
                     })
             .when('/about',
