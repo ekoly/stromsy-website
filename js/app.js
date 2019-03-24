@@ -102,23 +102,19 @@
 
                         console.log("isLoggedIn(): invalid session");
 
-                        $scope.$apply(()=>{
-                            $scope.user.username = undefined;
-                            $scope.user.is_logged_in = false;
-                        });
+                        $scope.user.username = undefined;
+                        $scope.user.is_logged_in = false;
                         
                         stromsy.setCookie("username", undefined, 0);
 
                         document.location.href = "#!login";
 
-                    } else if (stromsy.isFalsey(res.user)) {
+                    } else if (stromsy.isTruthey(res.user)) {
 
                         console.log("isLoggedIn(): setting cookies");
 
-                        $scope.$apply(()=>{
-                            $scope.user.username = res.user.user_nicename;
-                            $scope.user.is_logged_in = true;
-                        });
+                        $scope.user.username = res.user.user_nicename;
+                        $scope.user.is_logged_in = true;
 
                         stromsy.setCookie("username", res.user.user_nicename, 7);
 
