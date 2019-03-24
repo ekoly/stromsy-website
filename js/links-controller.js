@@ -7,7 +7,7 @@
         $scope.page = {};
 
     
-        fetch("http://localhost:5000/pages?name=links")
+        fetch("/pages?name=links")
             .then((res) => {
                 if (!res.ok) {
                     throw res;

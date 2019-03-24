@@ -15,7 +15,7 @@
 
             $scope.isMoreButtonShown = false;
 
-            fetch("http://localhost:5000/posts?first="+post_counter)
+            fetch("/posts?first="+post_counter)
                 .then((res) => {
                     if (!res.ok) {
                         throw res;
@@ -43,7 +43,7 @@
 
             console.log("getSinglePost()");
 
-            fetch("http://localhost:5000/posts/" + $routeParams.post_id)
+            fetch("/posts/" + $routeParams.post_id)
                 .then((res) => {
                     if (!res.ok) {
                         throw res;

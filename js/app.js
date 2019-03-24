@@ -45,9 +45,10 @@
                         activetab: 'projects'
 
                     })
-            .when('/pages/login',
+            .when('/login',
                     {
                         templateUrl: 'partials/login-template.html',
+                        controller: 'loginCtrl',
                         activetab: 'login'
 
                     })

@@ -2,9 +2,18 @@
 <section>
     <section id="content">
         <article>
-            <p>
-                Under construction
-            </p>
+            <h3>Log In</h3>
+            <form ng-submit="login()">
+                <p>
+                    <label>username or email:</label>
+                    <input type="text" required ng-model="user.user_id" />
+                </p>
+                <p>
+                    <label>password:</label>
+                    <input type="password" required ng-model="user.user_password" />
+                </p>
+                <input type="submit" value="log in" />
+            </form>
         </article>
     </section>
 </section>
