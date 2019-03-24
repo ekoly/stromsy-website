@@ -115,7 +115,7 @@ section.margin-section {
 	padding: 0;
 }
 #main-logo-title,
-#main-logo-title.active {
+#main-logo-title.activetab {
 	font-size: 150%;
 	color: rgb(245,229,208);
 	float: left;
@@ -129,7 +129,7 @@ section.margin-section {
     color: rgb(245,229,208);
 }
 #nav-main-logo-title,
-#nav-main-logo-title.active {
+#nav-main-logo-title.activetab {
 	font-size: 14pt;
 	color: rgb(245,229,208);
 	float: left;
@@ -162,9 +162,11 @@ section.margin-section {
 #banner nav ul li a:hover {
 	text-decoration: underline;
 }
-#banner nav ul li a.active {
+#banner nav ul li a.activetab,
+#banner nav ul li a.activetab:hover {
     color: #FFFFFF;
     font-weight: bold;
+    text-decoration: none;
 }
 
 #banner input {
@@ -347,9 +349,20 @@ section.margin-section {
     /* content: "<i class=\"fas fa-quote-right\"></i>"; */
 }
 
-#content article.blog-post .post-time {
-    margin-top: 30px;
+#content article.blog-post .post-footer {
+    margin-top: 45px;
+    padding-top: 15px;
+    border-top: #511 dashed 1px;
     margin-bottom: 0;
+}
+
+#content article.blog-post .post-footer span {
+    float: left;
+    margin-right: 25px;
+}
+
+#content article.blog-post .post-footer span:last-child {
+    margin-right: 0;
 }
 
 #about-img-container {

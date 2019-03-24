@@ -6,40 +6,46 @@
         $routeProvider
             .when('/',
                     {
+                        templateUrl: 'partials/about-template.html',
+                        controller: 'blogCtrl',
+                        activetab: 'about'
+                    })
+            .when('/blog',
+                    {
                         templateUrl: 'partials/blog-template.html',
                         controller: 'blogCtrl',
-                        activetab: 'home'
+                        activetab: 'blog'
                     })
             .when('/blog/page/:page_id',
                     {
                         templateUrl: 'partials/blog-template.html',
                         controller: 'blogCtrl',
-                        activetab: 'home'
+                        activetab: 'blog'
                     })
             .when('/blog/posts/:post_id',
                     {
                         templateUrl: 'partials/blog-template.html',
                         controller: 'blogCtrl',
-                        activetab: 'home'
+                        activetab: 'blog'
                     })
-            .when('/about',
+            .when('/pages/about',
                     {
                         templateUrl: 'partials/about-template.html',
                         activetab: 'about'
                     })
-            .when('/links',
+            .when('/pages/links',
                     {
                         templateUrl: 'partials/links-template.html',
                         controller: 'linksCtrl',
                         activetab: 'links'
                     })
-            .when('/projects',
+            .when('/pages/projects',
                     {
                         templateUrl: 'partials/projects-template.html',
                         activetab: 'projects'
 
                     })
-            .when('/login',
+            .when('/pages/login',
                     {
                         templateUrl: 'partials/login-template.html',
                         activetab: 'login'
@@ -50,6 +56,13 @@
 
     stromsy.app.controller("mainCtrl", function($scope, $route) {
         $scope.route = $route;
+    });
+
+    stromsy.app.component("blogArticle", {
+        templateUrl: "partials/article-template.html",
+        bindings: {
+            post: "="
+        }
     });
 
     

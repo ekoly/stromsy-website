@@ -15,6 +15,7 @@
         <script src="js/base.js"></script>
         <script src="js/app.js"></script>
         <script src="js/blog-controller.js"></script>
+        <script src="js/links-controller.js"></script>
 
 		<meta name="pageport" content="width=device-width, initial-scale=1.0">
 
@@ -25,28 +26,28 @@
 			<header id="banner">
 				<section id="main-logo" class="col col3">
 					<h1>
-						<a id="main-logo-title" href="/">
+						<a id="main-logo-title" href="#!pages/about">
 							stromsy
 						</a>
 					</h1>
 				</section>
-                <nav>
+                <nav ng-model="route.current.active">
 					<ul>
                         <li class="col col2">
                             <h1>
-                                <a id="nav-main-logo-title" href="/" ng-class="{activetab: route.current.activetab==='home'}">
+                                <a id="nav-main-logo-title" href="#!pages/about" ng-class="{activetab: route.current.activetab==='about'}">
                                     stromsy
                                 </a>
                             </h1>
                         </li>
                         <li class="col col2">
-                            <a href="#!projects" ng-class="{activetab: route.current.activetab==='projects'}">projects</a>
+                            <a href="#!pages/projects" ng-class="{activetab: route.current.activetab==='projects'}">projects</a>
                         </li>
                         <li class="col col2">
-                            <a href="#!links" ng-class="{activetab: route.current.activetab==='links'}">links</a>
+                            <a href="#!pages/links" ng-class="{activetab: route.current.activetab==='links'}">links</a>
                         </li>
                         <li class="col col2">
-                            <a href="#!about" ng-class="{activetab: route.current.activetab==='about'}">about</a>
+                            <a href="#!blog" ng-class="{activetab: route.current.activetab==='blog'}">blog</a>
                         </li>
                         <li class="col col2">
                             <a href="#/!" ng-class="{activetab: route.current.activetab===''}"></a>

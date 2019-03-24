@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <section>
+
     <section id="top-banner-picture">
         <a href="#"><img title="Lief Eriksson discovers Straumsey" src="img/vikings_at_straumsey_banner-9.png" /></a>
     </section>
     <section id="content" ng-repeat="post in posts">
-        <article class="blog-post">
-            <h3><a href="#!blog/posts/{{post.post_id}}">{{post.post_title}}</a></h3>
-            <div ng-bind-html="post.post_content"></div>
-            <p class="post-time">{{post.post_date}}</p>
-        </article>
+        <blog-article post="post">
+        </blog-article>
     </section>
-    <section id="more-button" ng-show="isMoreButtonShown"><a ng-click="populatePosts()">more</a></section>
+    <section id="more-button" ng-model="isMoreButtonShown" ng-show="isMoreButtonShown"><a ng-click="populatePosts()">more</a></section>
 
 </section>

@@ -13,6 +13,8 @@
 
             console.log("populatePosts()");
 
+            $scope.isMoreButtonShown = false;
+
             fetch("http://localhost:5000/posts?first="+post_counter)
                 .then((res) => {
                     if (!res.ok) {
@@ -26,6 +28,7 @@
                         $scope.posts.push(data.posts[ix]);
                     }
                     post_counter += 10;
+                    $scope.isMoreButtonShown = true;
 
                     $scope.$apply();
 
@@ -71,7 +74,7 @@
 
             if (isNaN($routeParams.post_id)) {
                 $scope.populatePosts();
-                $scope.isMoreButtonShown = true;
+                $scope.isMoreButtonShown = false;
             } else {
                 $scope.getSinglePost();
                 $scope.isMoreButtonShown = false;

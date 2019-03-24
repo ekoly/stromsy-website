@@ -1,0 +1,6 @@
+<article class="blog-post">
+    <h2 ng-if="$ctrl.post.post_type=='post'"><a href="#!blog/posts/{{$ctrl.post.post_id}}">{{$ctrl.post.post_title}}</a></h3>
+    <h2 ng-if="$ctrl.post.post_type=='page'">{{$ctrl.post.post_title}}</h3>
+    <div ng-bind-html="$ctrl.post.post_content"></div>
+    <p class="post-footer"><span>{{$ctrl.post.post_date}}</span><span><a href="#!edit/{{$ctrl.post.post_id}}">edit</a></p>
+</article>
