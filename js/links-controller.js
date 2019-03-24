@@ -3,6 +3,7 @@
     stromsy.app.controller('linksCtrl', function($scope, $http, $sce, $compile) {
 
         console.log("linksCtrl()");
+        stromsy.isLoggedIn();
 
         $scope.page = {};
 

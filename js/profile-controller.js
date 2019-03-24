@@ -1,11 +1,11 @@
 (()=>{
 
-    stromsy.app.controller('loginCtrl', function($scope, $http, $sce, $compile) {
+    stromsy.app.controller('profileCtrl', function($scope, $http, $sce, $compile) {
 
         console.log("loginCtrl()");
 
-        if (stromsy.isLoggedIn()) {
-            document.location = "#!profile";
+        if (!stromsy.isLoggedIn()) {
+            document.location = "#!login";
         }
 
         $scope.user = {

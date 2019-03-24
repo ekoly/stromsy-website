@@ -45,6 +45,13 @@
                         activetab: 'projects'
 
                     })
+            .when('/profile',
+                    {
+                        templateUrl: 'partials/profile-template.html',
+                        controller: 'profileCtrl',
+                        activetab: 'profile'
+
+                    })
             .when('/login',
                     {
                         templateUrl: 'partials/login-template.html',
@@ -56,7 +63,79 @@
     });
 
     stromsy.app.controller("mainCtrl", function($scope, $route) {
+
         $scope.route = $route;
+
+        $scope.user = {
+            username: stromsy.getCookie("username") || undefined,
+            is_logged_in: stromsy.isTruthey(stromsy.getCookie("username"))
+        }
+
+        stromsy.logIn = function(user) {
+
+            console.log("logged in:", user);
+
+            stromsy.setCookie("username", user.user_nicename, 7);
+            stromsy.setCookie("user_email", user.user_email, 7);
+
+            $scope.user.is_logged_in = true;
+            $scope.user.username = user.user_nicename;
+
+            document.location = "#!profile";
+
+        };
+
+        stromsy.scope = $scope;
+
+        stromsy.isLoggedIn = function() {
+
+            fetch('/user/getsession')
+                .then((res) => {
+                    if (!res.ok) {
+                        throw res;
+                    }
+                    return res.json();
+                })
+                .then((res) => {
+
+                    if (stromsy.isFalsey(res.user) && stromsy.isTruthey($scope.user.username)) {
+
+                        console.log("isLoggedIn(): invalid session");
+
+                        $scope.$apply(()=>{
+                            $scope.user.username = undefined;
+                            $scope.user.is_logged_in = false;
+                        });
+                        
+                        stromsy.setCookie("username", undefined, 0);
+
+                        document.location.href = "#!login";
+
+                    } else if (stromsy.isFalsey(res.user)) {
+
+                        console.log("isLoggedIn(): setting cookies");
+
+                        $scope.$apply(()=>{
+                            $scope.user.username = res.user.user_nicename;
+                            $scope.user.is_logged_in = true;
+                        });
+
+                        stromsy.setCookie("username", res.user.user_nicename, 7);
+
+                    }
+
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+
+            $scope.user.username = stromsy.getCookie("username") || undefined;
+            $scope.user.is_logged_in = stromsy.isTruthey(stromsy.getCookie("username"));
+
+            return $scope.is_logged_in;
+
+        };
+
     });
 
     stromsy.app.component("blogArticle", {

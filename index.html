@@ -17,6 +17,7 @@
         <script src="js/blog-controller.js"></script>
         <script src="js/links-controller.js"></script>
         <script src="js/login-controller.js"></script>
+        <script src="js/profile-controller.js"></script>
 
 		<meta name="pageport" content="width=device-width, initial-scale=1.0">
 
@@ -53,9 +54,14 @@
                         <li class="col col2">
                             <a href="#/!" ng-class="{activetab: route.current.activetab===''}"></a>
                         </li>
-                        <li class="col2 col-last">
+                        <li ng-hide="user.is_logged_in" class="col2 col-last">
                             <a href="#!login" id="login" ng-class="{activetab: route.current.activetab==='login'}">
                                 login
+                            </a>
+                        </li>
+                        <li ng-show="user.is_logged_in" class="col2 col-last">
+                            <a href="#!profile" id="profile" ng-class="{activetab: route.current.activetab==='profile'}">
+                                {{ user.username }}
                             </a>
                         </li>
 					</ul>

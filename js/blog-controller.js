@@ -3,6 +3,7 @@
     stromsy.app.controller('blogCtrl', function($scope, $http, $sce, $compile, $timeout, $routeParams) {
 
         console.log($routeParams);
+        stromsy.isLoggedIn();
 
         let post_counter = 0;
 
