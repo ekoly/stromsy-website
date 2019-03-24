@@ -286,6 +286,10 @@ section.margin-section {
     color: #511;
 }
 
+#content article a:hover {
+    text-decoration: none;
+}
+
 #content article p {
     margin: 40px 0;
 }

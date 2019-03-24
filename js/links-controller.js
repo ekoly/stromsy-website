@@ -4,6 +4,8 @@
 
         $scope.isHomeActive = false;
 
+        console.log("linksCtrl()");
+
     });
 
 });
