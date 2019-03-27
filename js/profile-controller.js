@@ -2,20 +2,38 @@
 
     stromsy.app.controller('profileCtrl', function($scope, $http, $sce, $compile) {
 
-        console.log("loginCtrl()");
+        console.log("profileCtrl()");
 
-        if (!stromsy.isLoggedIn()) {
-            document.location = "#!login";
-        }
-
-        $scope.user = {
-            user_id: "",
-            user_password: ""
-        };
+        $scope.user.old_password = "";
+        $scope.user.new_password = "";
         
-        $scope.login = function() {
+        $scope.logout = function() {
 
-            fetch("/user/login", {
+            fetch("/user/logout", {
+                    method: "POST"
+                })
+                .then(stromsy.verifyResponse)
+                .then((data) => {
+
+                    stromsy.setCookie("username", null, -1);
+                    $scope.user = {};
+
+                    window.location.href = "#!login";
+
+                    console.log("logout success");
+
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            
+            stromsy.setCookie("user", undefined);
+
+        }
+        
+        $scope.updatePassword = function() {
+
+            fetch("/user/password", {
                     method: "POST",
                     headers: {
                         "Accept": "Application/json",
@@ -25,21 +43,19 @@
                         user: $scope.user
                     })
                 })
-                .then((res) => {
-                    if (!res.ok) {
-                        throw res;
-                    }
-                    return res.json();
-                })
-                .then((data) => {
-                    console.log("login success");
-                    stromsy.logIn(data.user);
+                .then(stromsy.verifyResponse)
+                .then(()=>{
+                    console.log("password update success");
                 })
                 .catch((err) => {
                     console.log(err);
                 });
+            
+            stromsy.setCookie("user", undefined);
 
-            }
+        }
+
+            
 
     });
 

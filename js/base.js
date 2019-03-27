@@ -45,6 +45,7 @@ stromsy = {
         FORBIDDEN: 403,
         NOT_FOUND: 404
     },
+
     getCookie: (cname) => {
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
@@ -60,10 +61,27 @@ stromsy = {
         }
         return "";
     },
+
     setCookie: (cname, cvalue, exdays) => {
         let d = new Date();
-        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        if (exdays >= 0) {
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        } else {
+            d.setTime(0);
+        }
         let expires = "expires="+ d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
+    },
+
+    verifyResponse: (res) => {
+        if (!res.ok) {
+            throw res;
+        }
+        return res.json();
+    },
+
+    quotes: [
+        "<p>The object of life is not to be on the side of the majority, but to escape finding oneself in the ranks of the insane.</p><p>- Marcus Aurelius, Roman Emperor 161-180 AD </p>"
+    ]
+
 };

@@ -3,21 +3,14 @@
     stromsy.app.controller('linksCtrl', function($scope, $http, $sce, $compile) {
 
         console.log("linksCtrl()");
-        stromsy.isLoggedIn();
 
-        $scope.page = {};
-
+        $scope.post = {};
     
         fetch("/pages?name=links")
-            .then((res) => {
-                if (!res.ok) {
-                    throw res;
-                }
-                return res.json();
-            })
+            .then(stromsy.verifyResponse)
             .then((data) => {
 
-                $scope.page = data.page;
+                $scope.post = data.page;
                 $scope.$apply();
 
             })

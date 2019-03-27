@@ -1,17 +1,16 @@
 (()=>{
 
-    stromsy.app.controller('loginCtrl', function($scope, $http, $sce, $compile) {
+    stromsy.app.controller('loginCtrl', function($scope, $http, $sce, $compile, $rootScope) {
 
         console.log("loginCtrl()");
 
-        if (stromsy.isLoggedIn()) {
-            document.location = "#!profile";
-        }
+        console.log($scope.user);
 
-        $scope.user = {
-            user_id: "",
-            user_password: ""
-        };
+        if (stromsy.isFalsey($scope.user)) {
+            $scope.user = {}
+        }
+        $scope.user.user_id = "";
+        $scope.user.user_password = "";
         
         $scope.login = function() {
 
@@ -25,15 +24,14 @@
                         user: $scope.user
                     })
                 })
-                .then((res) => {
-                    if (!res.ok) {
-                        throw res;
-                    }
-                    return res.json();
-                })
+                .then(stromsy.verifyResponse)
                 .then((data) => {
-                    console.log("login success");
-                    stromsy.logIn(data.user);
+
+                    stromsy.setCookie("username", data.user.user_nicename, 7);
+                    $scope.user.username = data.user.user_nicename;
+
+                    window.location.href = "#!profile";
+
                 })
                 .catch((err) => {
                     console.log(err);

@@ -54,12 +54,12 @@
                         <li class="col col2">
                             <a href="#/!" ng-class="{activetab: route.current.activetab===''}"></a>
                         </li>
-                        <li ng-hide="user.is_logged_in" class="col2 col-last">
+                        <li ng-hide="user.username!==undefined" class="col2 col-last">
                             <a href="#!login" id="login" ng-class="{activetab: route.current.activetab==='login'}">
                                 login
                             </a>
                         </li>
-                        <li ng-show="user.is_logged_in" class="col2 col-last">
+                        <li ng-show="user.username!==undefined" class="col2 col-last">
                             <a href="#!profile" id="profile" ng-class="{activetab: route.current.activetab==='profile'}">
                                 {{ user.username }}
                             </a>

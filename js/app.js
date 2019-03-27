@@ -60,63 +60,56 @@
 
                     })
             .otherwise({redirectTo: '/'});
-    });
+    })
+    .run(function($rootScope, $location) {
 
-    stromsy.app.controller("mainCtrl", function($scope, $route) {
+        const USER_PAGES = [
+                "profile"
+            ],
+            NONUSER_PAGES = [
+                "login"
+            ];
+        
+        const determinePriviledges = function(path) {
 
-        $scope.route = $route;
+            const is_logged_in = stromsy.isTruthey($rootScope.user.username);
+            const is_user_page = (USER_PAGES.indexOf(path) !== -1);
+            const is_nonuser_page = (NONUSER_PAGES.indexOf(path) !== -1);
 
-        $scope.user = {
-            username: stromsy.getCookie("username") || undefined,
-            is_logged_in: stromsy.isTruthey(stromsy.getCookie("username"))
-        }
+            console.log("is_logged_in", is_logged_in);
+            console.log("is_user_page", is_user_page);
+            console.log("is_nonuser_page", is_nonuser_page);
 
-        stromsy.logIn = function(user) {
-
-            console.log("logged in:", user);
-
-            stromsy.setCookie("username", user.user_nicename, 7);
-            stromsy.setCookie("user_email", user.user_email, 7);
-
-            $scope.user.is_logged_in = true;
-            $scope.user.username = user.user_nicename;
-
-            document.location = "#!profile";
+            if (!is_logged_in && is_user_page) {
+                window.location.href = "#!login";
+            } else if (is_logged_in && is_nonuser_page) {
+                window.location.href = "#!profile";
+            }
 
         };
 
-        stromsy.scope = $scope;
 
-        stromsy.isLoggedIn = function() {
+        $rootScope.$on("$routeChangeStart", function(event, next, current) {
 
-            fetch('/user/getsession')
-                .then((res) => {
-                    if (!res.ok) {
-                        throw res;
-                    }
-                    return res.json();
-                })
+            fetch('/user/session')
+                .then(stromsy.verifyResponse)
                 .then((res) => {
 
-                    if (stromsy.isFalsey(res.user) && stromsy.isTruthey($scope.user.username)) {
+                    if (stromsy.isFalsey(res.user) && stromsy.isTruthey($rootScope.user.username)) {
 
                         console.log("isLoggedIn(): invalid session");
-
-                        $scope.user.username = undefined;
-                        $scope.user.is_logged_in = false;
-                        
+                        $rootScope.user.username = undefined;
                         stromsy.setCookie("username", undefined, 0);
 
-                        document.location.href = "#!login";
+                        determinePriviledges(next.activetab);
 
-                    } else if (stromsy.isTruthey(res.user)) {
+                    } else if (stromsy.isTruthey(res.user) && stromsy.isFalsey($rootScope.user.username)) {
 
                         console.log("isLoggedIn(): setting cookies");
-
-                        $scope.user.username = res.user.user_nicename;
-                        $scope.user.is_logged_in = true;
-
+                        $rootScope.user.username = res.user.user_nicename;
                         stromsy.setCookie("username", res.user.user_nicename, 7);
+
+                        determinePriviledges(next.activetab);
 
                     }
 
@@ -125,11 +118,20 @@
                     console.log(err);
                 });
 
-            $scope.user.username = stromsy.getCookie("username") || undefined;
-            $scope.user.is_logged_in = stromsy.isTruthey(stromsy.getCookie("username"));
+            $rootScope.user.username = stromsy.getCookie("username") || undefined;
+            determinePriviledges(next.activetab);
 
-            return $scope.is_logged_in;
+        });
 
+    });
+
+    stromsy.app.controller("mainCtrl", function($scope, $route, $rootScope) {
+
+        $rootScope.user = {
+            username: stromsy.getCookie("username") || undefined
+        }
+
+        stromsy.logIn = function(user) {
         };
 
     });
