@@ -162,8 +162,8 @@ section.margin-section {
 #banner nav ul li a:hover {
 	text-decoration: underline;
 }
-#banner nav ul li a.activetab,
-#banner nav ul li a.activetab:hover {
+#banner nav a.activetab,
+#banner nav a.activetab:hover {
     color: #FFFFFF;
     font-weight: bold;
     text-decoration: none;

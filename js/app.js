@@ -69,7 +69,7 @@
             NONUSER_PAGES = [
                 "login"
             ];
-        
+
         const determinePriviledges = function(path) {
 
             const is_logged_in = stromsy.isTruthey($rootScope.user.username);
@@ -87,7 +87,6 @@
             }
 
         };
-
 
         $rootScope.$on("$routeChangeStart", function(event, next, current) {
 
@@ -143,5 +142,5 @@
         }
     });
 
-    
+
 })();

@@ -4,18 +4,23 @@
 
         console.log("linksCtrl()");
 
-        $scope.post = {};
+        $scope.page = {
+            post_content: stromsy.random.choice(stromsy.quotes),
+            post_date: "",
+            post_type: "error"
+        };
     
         fetch("/pages?name=links")
             .then(stromsy.verifyResponse)
             .then((data) => {
 
-                $scope.post = data.page;
+                $scope.page = data.page;
                 $scope.$apply();
 
             })
             .catch((err) => {
                 console.log(err);
+                $scope.$apply();
             });
 
     });
