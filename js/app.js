@@ -76,10 +76,6 @@
             const is_user_page = (USER_PAGES.indexOf(path) !== -1);
             const is_nonuser_page = (NONUSER_PAGES.indexOf(path) !== -1);
 
-            console.log("is_logged_in", is_logged_in);
-            console.log("is_user_page", is_user_page);
-            console.log("is_nonuser_page", is_nonuser_page);
-
             if (!is_logged_in && is_user_page) {
                 window.location.href = "#!login";
             } else if (is_logged_in && is_nonuser_page) {
@@ -98,7 +94,6 @@
 
                         console.log("isLoggedIn(): invalid session");
                         $rootScope.user.username = undefined;
-                        stromsy.setCookie("username", undefined, 0);
 
                         determinePriviledges(next.activetab);
 
@@ -106,7 +101,6 @@
 
                         console.log("isLoggedIn(): setting cookies");
                         $rootScope.user.username = res.user.user_nicename;
-                        stromsy.setCookie("username", res.user.user_nicename, 7);
 
                         determinePriviledges(next.activetab);
 
@@ -117,7 +111,6 @@
                     console.log(err);
                 });
 
-            $rootScope.user.username = stromsy.getCookie("username") || undefined;
             determinePriviledges(next.activetab);
 
         });
@@ -126,12 +119,13 @@
 
     stromsy.app.controller("mainCtrl", function($scope, $route, $rootScope) {
 
+        let username_el = document.getElementById("user-username");
+
         $rootScope.user = {
-            username: stromsy.getCookie("username") || undefined
+            username: username_el.innerText
         }
 
-        stromsy.logIn = function(user) {
-        };
+        username_el.parentElement.removeChild(username_el);
 
     });
 

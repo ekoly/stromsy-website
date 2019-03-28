@@ -4,8 +4,12 @@
 
         console.log("profileCtrl()");
 
-        $scope.user.old_password = "";
-        $scope.user.new_password = "";
+        $scope.pwuser = {
+            username: $scope.user.username,
+            old_password: "",
+            new_password: "",
+            confirm_new_password: ""
+        };
         
         $scope.logout = function() {
 
@@ -14,21 +18,14 @@
                 })
                 .then(stromsy.verifyResponse)
                 .then((data) => {
-
-                    stromsy.setCookie("username", null, -1);
                     $scope.user = {};
-
                     window.location.href = "#!login";
-
                     console.log("logout success");
-
                 })
                 .catch((err) => {
                     console.log(err);
                 });
             
-            stromsy.setCookie("user", undefined);
-
         }
         
         $scope.updatePassword = function() {
@@ -44,19 +41,50 @@
                     })
                 })
                 .then(stromsy.verifyResponse)
-                .then(()=>{
-                    console.log("password update success");
+                .then((res)=>{
                 })
                 .catch((err) => {
                     console.log(err);
                 });
-            
-            stromsy.setCookie("user", undefined);
 
         }
 
-            
+        $scope.checkNewPassword = function() {
+            if ($scope.user.new_password.length < 8) {
+                $scope.pwuser.has_error = true;
+                $scope.pwuser.error_message = "password too short!";
+            } else {
+                $scope.pwuser.has_error = false;
+                $scope.pwuser.error_message = "";
+            }
+        };
+
+        $scope.confirmNewPassword = function() {
+            if ($scope.user.confirm_new_password === $scope.user.new_password) {
+                $scope.pwuser.has_error = true;
+                $scope.pwuser.error_message = "passwords do not match!";
+            } else {
+                $scope.pwuser.has_error = false;
+                $scope.pwuser.error_message = "";
+            }
+        };
 
     });
 
+    stromsy.app.directive("checkPassword", function() {
+        return {
+            require: "ngModel",
+            link: function(scope, element, attr, mCtrl) {
+                mCtrl.$parsers.push((value)=>{
+                    if (value.length < 8) {
+                        mCtrl.$setValidity("Too short! Must be at least 8 characters", false);
+                    } else {
+                        mCtrl.$setValidity("", true);
+                    }
+                });
+            }
+        };
+    });
+
 })();
+

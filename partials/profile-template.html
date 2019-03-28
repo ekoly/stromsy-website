@@ -6,14 +6,16 @@
                 <input type="submit" value="log out" />
             </form>
             <h3>Update Password</h3>
-            <form ng-submit="updatePassword()">
+            <form name="password-form" ng-submit="updatePassword()">
                 <p>
                     <label>old password:</label>
-                    <input type="password" required ng-model="user.old_password" />
-                </p>
-                <p>
+                    <input name="old-password" type="password" required ng-model="pwuser.old_password" />
+                </p><p>
                     <label>new password:</label>
-                    <input type="password" required ng-model="user.new_password" />
+                    <input name="new-password" type="password" required ng-model="pwuser.new_password" check-password />
+                    <br>
+                    <label>confirm old password:</label>
+                    <input name="confirm-new-password" type="password" required ng-model="pwuser.confirm_new_password" />
                 </p>
                 <input type="submit" value="update password" />
             </form>

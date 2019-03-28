@@ -60,8 +60,7 @@
                             </a>
                         </li>
                         <li ng-show="user.username!==undefined" class="col2 col-last">
-                            <a href="#!profile" id="profile" ng-class="{activetab: route.current.activetab==='profile'}">
-                                {{ user.username }}
+                            <a href="#!profile" id="profile" ng-class="{activetab: route.current.activetab==='profile'}" ng-bind="user.username">
                             </a>
                         </li>
 					</ul>
@@ -94,6 +93,13 @@
             </footer>
         </section>
 		<section class="margin-section"></section>
+
+        <span style="display: none" id="user-username">
+        {% if current_user.is_authenticated %}
+        {{ current_user.user_nicename }}
+        {% else %}
+        {% endif %}
+        </span>
 
 	</body>
 

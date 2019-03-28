@@ -26,12 +26,8 @@
                 })
                 .then(stromsy.verifyResponse)
                 .then((data) => {
-
-                    stromsy.setCookie("username", data.user.user_nicename, 7);
                     $scope.user.username = data.user.user_nicename;
-
                     window.location.href = "#!profile";
-
                 })
                 .catch((err) => {
                     console.log(err);

@@ -2,16 +2,12 @@
 
     stromsy.app.controller('blogCtrl', function($scope, $http, $sce, $compile, $timeout, $routeParams) {
 
-        console.log($routeParams);
-
         let post_counter = 0;
 
         $scope.posts = [];
         $scope.isMoreButtonShown = false;
 
         $scope.populatePosts = function() {
-
-            console.log("populatePosts()");
 
             $scope.isMoreButtonShown = false;
 
