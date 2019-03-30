@@ -4,8 +4,6 @@
 
         console.log("loginCtrl()");
 
-        console.log($scope.user);
-
         if (stromsy.isFalsey($scope.user)) {
             $scope.user = {}
         }

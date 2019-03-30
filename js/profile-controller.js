@@ -1,11 +1,11 @@
 (()=>{
 
-    stromsy.app.controller('profileCtrl', function($scope, $http, $sce, $compile) {
+    stromsy.app.controller('profileCtrl', function($scope, $http, $sce, $compile, $rootScope) {
 
         console.log("profileCtrl()");
 
         $scope.pwuser = {
-            username: $scope.user.username,
+            user_id: $scope.user.user_id,
             old_password: "",
             new_password: "",
             confirm_new_password: ""
@@ -18,7 +18,7 @@
                 })
                 .then(stromsy.verifyResponse)
                 .then((data) => {
-                    $scope.user = {};
+                    $rootScope.user = {};
                     window.location.href = "#!login";
                     console.log("logout success");
                 })

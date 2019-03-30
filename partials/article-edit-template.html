@@ -1,0 +1,24 @@
+<section>
+    <section id="content">
+        <article class="blog-post">
+            <h2 ng-bind="header_text"></h2>
+            <form id="update-post-form" name="update-post-form" ng-submit="publishPost()">
+                <h2>
+                    <input id="update-post-title" type="text" ng-model="post.post_title" ng-show="is_editing" />
+                    <span ng-bind="post.post_title" ng-hide="is_editing"></span>
+                </h2>
+                <textarea id="update-post-content" type="text" ng-model="post.post_content" ng-show="is_editing"></textarea>
+                <div ng-bind-html="post.post_content" ng-hide="is_editing"></div>
+                <div id="preview-toggle">
+                    <button type="button" ng-show="is_editing" ng-click="previewPost()">Preview</button>
+                    <button type="button" ng-hide="is_editing" ng-click="editPost()">Edit</button>
+                </div>
+                <input id="submit-post-button" type="submit" ng-value="submit_text" />
+                <div id="revisions-prev-next-buttons">
+                    <a id="revisions-prev-button" ng-click="prevRevision()" ng-show="is_prev">previous revision</a>
+                    <a id="revisions-next-button" ng-click="nextRevision()" ng-show="is_next">next revision</a>
+                </div>
+            </form>
+            <p class="post-footer"><span>{{post.post_date}}</span></p>
+        </article>
+</section>

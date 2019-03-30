@@ -1,6 +1,6 @@
 (()=>{
 
-    stromsy.app.controller('linksCtrl', function($scope, $http, $sce, $compile) {
+    stromsy.app.controller('linksCtrl', function($scope, $http, $sce, $compile, $scope) {
 
         console.log("linksCtrl()");
 
@@ -14,6 +14,7 @@
             .then(stromsy.verifyResponse)
             .then((data) => {
 
+                data.page.is_editable = ($scope.user.username===data.page.post_author.user_nicename);
                 $scope.page = data.page;
                 $scope.$apply();
 

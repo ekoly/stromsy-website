@@ -28,6 +28,18 @@
                         controller: 'blogCtrl',
                         activetab: 'blog'
                     })
+            .when('/blog/update/:post_id',
+                    {
+                        templateUrl: 'partials/article-edit-template.html',
+                        controller: 'editCtrl',
+                        activetab: 'edit-blog-post'
+                    })
+            .when('/blog/new',
+                    {
+                        templateUrl: 'partials/article-edit-template.html',
+                        controller: 'editCtrl',
+                        activetab: 'create-blog-post'
+                    })
             .when('/pages/about',
                     {
                         templateUrl: 'partials/about-template.html',
@@ -64,7 +76,9 @@
     .run(function($rootScope, $location) {
 
         const USER_PAGES = [
-                "profile"
+                "profile",
+                "edit-blog-post",
+                "create-blog-post"
             ],
             NONUSER_PAGES = [
                 "login"
@@ -86,30 +100,25 @@
 
         $rootScope.$on("$routeChangeStart", function(event, next, current) {
 
-            fetch('/user/session')
-                .then(stromsy.verifyResponse)
-                .then((res) => {
+            // fetch('/user/session')
+                // .then(stromsy.verifyResponse)
+                // .then((res) => {
+                    // if (stromsy.isFalsey($rootScope.user.username)) {
+                        // console.log("isLoggedIn(): setting cookies");
+                        // $rootScope.user.user_id = res.user.user_id;
+                        // $rootScope.user.username = res.user.user_nicename;
 
-                    if (stromsy.isFalsey(res.user) && stromsy.isTruthey($rootScope.user.username)) {
+                        // determinePriviledges(next.activetab);
+                    // }
+                // })
+                // .catch((err) => {
+                    // if (stromsy.isTruthey($rootScope.user.username)) {
+                        // console.log("isLoggedIn(): invalid session");
+                        // $rootScope.user = {};
 
-                        console.log("isLoggedIn(): invalid session");
-                        $rootScope.user.username = undefined;
-
-                        determinePriviledges(next.activetab);
-
-                    } else if (stromsy.isTruthey(res.user) && stromsy.isFalsey($rootScope.user.username)) {
-
-                        console.log("isLoggedIn(): setting cookies");
-                        $rootScope.user.username = res.user.user_nicename;
-
-                        determinePriviledges(next.activetab);
-
-                    }
-
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+                        // determinePriviledges(next.activetab);
+                    // }
+                // });
 
             determinePriviledges(next.activetab);
 
@@ -122,7 +131,7 @@
         let username_el = document.getElementById("user-username");
 
         $rootScope.user = {
-            username: username_el.innerText
+            username: username_el.innerText.trim() || undefined
         }
 
         username_el.parentElement.removeChild(username_el);

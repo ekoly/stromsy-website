@@ -1,6 +1,6 @@
 (()=>{
 
-    stromsy.app.controller('blogCtrl', function($scope, $http, $sce, $compile, $timeout, $routeParams) {
+    stromsy.app.controller('blogCtrl', function($scope, $http, $sce, $compile, $timeout, $routeParams, $rootScope) {
 
         let post_counter = 0;
 
@@ -16,7 +16,9 @@
                 .then((data) => {
 
                     for (ix in data.posts) {
-                        $scope.posts.push(data.posts[ix]);
+                        let post = data.posts[ix];
+                        post.is_editable = ($scope.user.username===post.post_author.user_nicename);
+                        $scope.posts.push(post);
                     }
                     post_counter += 10;
                     $scope.isMoreButtonShown = true;
@@ -35,16 +37,11 @@
             console.log("getSinglePost()");
 
             fetch("/posts/" + $routeParams.post_id)
-                .then((res) => {
-                    if (!res.ok) {
-                        throw res;
-                    }
-                    return res.json();
-                })
+                .then(stromsy.verifyResponse)
                 .then((data) => {
 
+                    data.post.is_editable = ($scope.user.user_id===data.post.post_author_id);
                     $scope.posts = [data.post];
-
                     $scope.$apply();
 
                 })
