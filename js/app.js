@@ -99,29 +99,8 @@
         };
 
         $rootScope.$on("$routeChangeStart", function(event, next, current) {
-
-            // fetch('/user/session')
-                // .then(stromsy.verifyResponse)
-                // .then((res) => {
-                    // if (stromsy.isFalsey($rootScope.user.username)) {
-                        // console.log("isLoggedIn(): setting cookies");
-                        // $rootScope.user.user_id = res.user.user_id;
-                        // $rootScope.user.username = res.user.user_nicename;
-
-                        // determinePriviledges(next.activetab);
-                    // }
-                // })
-                // .catch((err) => {
-                    // if (stromsy.isTruthey($rootScope.user.username)) {
-                        // console.log("isLoggedIn(): invalid session");
-                        // $rootScope.user = {};
-
-                        // determinePriviledges(next.activetab);
-                    // }
-                // });
-
             determinePriviledges(next.activetab);
-
+            $rootScope.$broadcast("current-tab", {activetab: next.activetab});
         });
 
     });
@@ -135,6 +114,11 @@
         }
 
         username_el.parentElement.removeChild(username_el);
+
+        $scope.activetab = "";
+        $rootScope.$on("current-tab", (event, args) => {
+            $scope.activetab = args.activetab;
+        });
 
     });
 

@@ -53,7 +53,7 @@
                 if (isNaN($routeParams.post_id)) {
                     throw "Invalid url for this controller (postId)";
                 } else {
-                    $scope.publishPost = publishPostWrapper("/posts/update");
+                    $scope.publishPost = publishPostWrapper("/posts/update/"+$routeParams.post_id);
                     updateMode($scope, $routeParams.post_id);
                 }
 
@@ -85,14 +85,12 @@
         let revisions = [];
 
         const __prevRevision = function() {
-            console.log("__prevRevision()");
-            console.log("revisions: ", revisions);
             let ix = revisions.indexOf(scope.post);
-            console.log("ix: ", ix, "revisions.length: ", revisions.length);
             if (ix === 0) {
                 scope.is_prev = false;
             } else {
                 scope.post = revisions[ix-1];
+                scope.is_prev = (ix > 1);
                 scope.is_next = true;
                 scope.$apply();
             }
@@ -105,6 +103,7 @@
             } else {
                 scope.post = revisions[ix+1];
                 scope.is_prev = true;
+                scope.is_next = (ix < revisions.length-2);
                 scope.$apply();
             }
         };
@@ -122,8 +121,6 @@
         };
 
         const getSinglePost = function() {
-
-            console.log("getSinglePost()");
 
             fetch("/posts/" + post_id)
                 .then(stromsy.verifyResponse)

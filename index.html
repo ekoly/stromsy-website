@@ -44,24 +44,24 @@
                             </h1>
                         </li>
                         <li class="col col2">
-                            <a href="#!pages/projects" ng-class="{activetab: route.current.activetab==='projects'}">projects</a>
+                            <a href="#!pages/projects" ng-class="{activetab: activetab==='projects'}">projects</a>
                         </li>
                         <li class="col col2">
-                            <a href="#!pages/links" ng-class="{activetab: route.current.activetab==='links'}">links</a>
+                            <a href="#!pages/links" ng-class="{activetab: activetab==='links'}">links</a>
                         </li>
                         <li class="col col2">
-                            <a href="#!blog" ng-class="{activetab: route.current.activetab==='blog'}">blog</a>
+                            <a href="#!blog" ng-class="{activetab: activetab==='blog'}">blog</a>
                         </li>
                         <li class="col col2">
-                            <a href="#/!" ng-class="{activetab: route.current.activetab===''}"></a>
+                            <a href="#/!" ng-class="{activetab: activetab===''}"></a>
                         </li>
                         <li ng-hide="user.username!==undefined" class="col2 col-last">
-                            <a href="#!login" id="login" ng-class="{activetab: route.current.activetab==='login'}">
+                            <a href="#!login" id="login" ng-class="{activetab: activetab==='login'}">
                                 login
                             </a>
                         </li>
                         <li ng-show="user.username!==undefined" class="col2 col-last">
-                            <a href="#!profile" id="profile" ng-class="{activetab: route.current.activetab==='profile'}" ng-bind="user.username">
+                            <a href="#!profile" id="profile" ng-class="{activetab: activetab==='profile'}" ng-bind="user.username">
                             </a>
                         </li>
 					</ul>

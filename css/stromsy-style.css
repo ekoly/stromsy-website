@@ -91,6 +91,9 @@ section.margin-section {
 	background-color: #511;
 	padding: 0;
 	overflow: hidden;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-shadow: #511 0 0 6px 1px;
 }
 
 #banner a {
@@ -277,6 +280,8 @@ section.margin-section {
     text-align: justify;
     margin-bottom: 25px;
 	background-color: rgb(245,229,208);
+    box-shadow: #511 0 0 6px 1px;
+    border-radius: 3px;
 }
 #content article:last {
     margin-bottom: 0;
@@ -363,6 +368,25 @@ section.margin-section {
 
 #content article.blog-post .post-footer span:last-child {
     margin-right: 0;
+}
+
+#content .profile-section {
+    display: block;
+    width: 100%;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    border-bottom: #511 1px dashed;
+}
+
+#content .profile-section:last-child {
+    margin-bottom: 10px;
+    border-bottom-width: 0;
+}
+
+#content .profile-section form label {
+    min-width: 190px;
+    text-align: right;
+    display: inline-block;
 }
 
 #about-img-container {
@@ -630,6 +654,12 @@ footer a:hover {
 #update-post-content {
     width: 100%;
     height: 500px;
+}
+
+#edit-content-area {
+    margin-bottom: 15px;
+    padding-bottom: 45px;
+    border-bottom: #511 1px dashed;
 }
 
 #preview-toggle {

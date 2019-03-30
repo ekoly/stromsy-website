@@ -2,24 +2,30 @@
 <section>
     <section id="content">
         <article>
-            <p><a href="#!blog/new">new blog post</a></p>
-            <form ng-submit="logout()">
-                <input type="submit" value="log out" />
-            </form>
-            <h3>Update Password</h3>
-            <form name="password-form" ng-submit="updatePassword()">
-                <p>
-                    <label>old password:</label>
-                    <input name="old-password" type="password" required ng-model="pwuser.old_password" />
-                </p><p>
-                    <label>new password:</label>
-                    <input name="new-password" type="password" required ng-model="pwuser.new_password" check-password />
-                    <br>
-                    <label>confirm old password:</label>
-                    <input name="confirm-new-password" type="password" required ng-model="pwuser.confirm_new_password" />
-                </p>
-                <input type="submit" value="update password" />
-            </form>
+            <div class="profile-section">
+                <a href="#!blog/new">new blog post</a>
+            </div>
+            <div class="profile-section">
+                <form ng-submit="logout()">
+                    <input type="submit" value="log out" />
+                </form>
+            </div>
+            <div class="profile-section">
+                <h3>Update Password</h3>
+                <form name="password-form" ng-submit="updatePassword()">
+                    <p>
+                        <label>old password:</label>
+                        <input name="old-password" type="password" required ng-model="pwuser.old_password" />
+                    </p><p>
+                        <label>new password:</label>
+                        <input name="new-password" type="password" required ng-model="pwuser.new_password" check-password />
+                        <br>
+                        <label>confirm new password:</label>
+                        <input name="confirm-new-password" type="password" required ng-model="pwuser.confirm_new_password" />
+                    </p>
+                    <input type="submit" value="update password" />
+                </form>
+            </div>
         </article>
     </section>
 </section>
